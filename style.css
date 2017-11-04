@@ -85,6 +85,10 @@ input[type=search]{
 	font-size: 2em;
 }
 
+.margintop2vh{
+	margin-top:2vh;
+}
+
 .color-need{
 	background-color: #FA2A32;
 }
@@ -99,4 +103,8 @@ input[type=search]{
 
 .color-text-pink{
 	color: #FA2A32;
+}
+
+.color-text-green{
+	color: #3AC49A;
 }
