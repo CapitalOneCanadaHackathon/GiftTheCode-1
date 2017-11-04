@@ -1,18 +1,37 @@
-<?php 
+<?php
 
 /*Template Name: Donors - frontend */
 
 get_header();
+
+
+
 ?>
+
 
 
 <div class="container">
 	<div class="row">
 		<div class="col-md-12">
-			<h2>Lorem Ipsum</h2>
+			<h2>Lorem Ipsum asdjhgasjdgj</h2>
 			<p>
 				Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 			</p>
+			<?php
+			try{
+
+				$host = "localhost";
+				$dbname = "Sistering_inventories";
+				$user = "root";
+				$pass = "";
+
+				$conn = new PDO('mysql:host=$host;dbname=$dbname', $user, $pass);
+				echo "db connected";
+			}catch(PDOException $e){
+				echo $e->getMessage();
+				die("{'status': '500', 'msg': 'Error connecting to DB', 'data': ".json_encode($e->getMessage())." }");
+			}
+		 ?>
 		</div>
 	</div>
 	<div class="row">
