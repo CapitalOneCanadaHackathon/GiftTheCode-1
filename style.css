@@ -14,8 +14,89 @@ This theme, like WordPress, is licensed under the GPL.
 Use it to make something cool, have fun, and share what you've learned with others.
 */
 
+@import url('https://fonts.googleapis.com/css?family=Raleway:200,200i,400,600,700,800,900');
+
+body{
+	font-family: Raleway;
+}
+
+input[type=search]{
+	border: 1px solid #95989A;
+    border-radius: 5px;
+    width: 20vw;
+    height: 3em;
+    padding: 1em;
+    float: right;
+}
+
 .gift-header{
-	height:30vh;
+	height:40vh;
 	background-color: grey;
+	color: #fff;
+	position: relative;
+}
+
+.gift-header h1{
+	position: absolute;
+	bottom: -3vh;
+	font-size: 6em;
+}
+
+.items-container{
+	margin-top: 6vh;
+}
+
+.items-cat-container{
+	margin-top:6vh;
+	display: flex;
+	align-content: space-between;
+}
+
+.items-cat-container button{
+	 -webkit-appearance: none;
+	 border: none;
+	padding: 0.6em 2em 0.6em 2em;
+	border-radius: 5px;
+	margin-right: 1vw;
+
+}
+
+.items-tiles{
+	height: 20vw;
 	color: #FFF;
+	border: 0.2vw solid #FFF;
+}
+
+.items-tiles img{
+	max-height: 50%;
+    margin-top: 6%;
+    margin-bottom: 10%;
+}
+
+.items-tiles button{
+	width: 75%;
+	margin-left: 12.5%;
+	border: 0;
+	padding: 0.5em;
+}
+
+.items-heading{
+	text-align: center;
+	font-size: 2em;
+}
+
+.color-need{
+	background-color: #FA2A32;
+}
+
+.color-want{
+	background-color: #3AC49A;
+}
+
+.color-white{
+	background-color: #FFF;
+}
+
+.color-text-pink{
+	color: #FA2A32;
 }
