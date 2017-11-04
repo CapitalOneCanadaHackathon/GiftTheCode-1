@@ -1,9 +1,3 @@
--- Gift The Code -- SampleData.sql
--- Jody Kirton
--- Insert sample table records for demo display purposes.
-
-
-
 INSERT INTO gtc_volunteers (`name`, `phone`, `email`, `password`)
 VALUES('Jody Kirton', '416-255-5940', 'jody@hotmail.com', 'password123');
 
