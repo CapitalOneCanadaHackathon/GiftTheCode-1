@@ -420,7 +420,7 @@ function twentyseventeen_scripts() {
 
   	// Used for animations
   	wp_enqueue_style( 'animate_css', 'https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css' );
-  	
+
 	// Theme stylesheet.
 	wp_enqueue_style( 'twentyseventeen-style', get_stylesheet_uri() );
 
@@ -444,6 +444,10 @@ function twentyseventeen_scripts() {
 	wp_script_add_data( 'html5', 'conditional', 'lt IE 9' );
 
 	wp_enqueue_script( 'twentyseventeen-skip-link-focus-fix', get_theme_file_uri( '/assets/js/skip-link-focus-fix.js' ), array(), '1.0', true );
+
+	// wp_enqueue_script('sis_js', get_theme_file_uri('/assests/js/sisstering.js'), array('jquery'), true  );
+
+	wp_enqueue_script( 'sisstering-script', get_theme_file_uri( '/assets/js/sisstering.js' ), array('jquery'), true );
 
 	$twentyseventeen_l10n = array(
 		'quote'          => twentyseventeen_get_svg( array( 'icon' => 'quote-right' ) ),

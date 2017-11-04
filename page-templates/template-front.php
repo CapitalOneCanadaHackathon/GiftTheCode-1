@@ -4,33 +4,34 @@
 
 get_header();
 
+try{
 
+	$host = "localhost";
+	$dbname = "Sistering_inventories";
+	$user = "root";
+	$pass = "root";
+
+	$conn = new PDO("mysql:host=$host;dbname=$dbname", $user, $pass);
+	echo "db connected";
+}catch(PDOException $e){
+	// echo $e->getMessage();
+	die("{'status': '500', 'msg': 'Error connecting to DB', 'data': ".json_encode($e->getMessage())." }");
+}
 
 ?>
 
+<input type="hidden" value="<?php echo get_template_directory() ?>" id="serverURI">
 
 
 <div class="container">
 	<div class="row">
 		<div class="col-md-12">
-			<h2>Lorem Ipsum asdjhgasjdgj</h2>
+			<h2>Make a promise towards a good cause</h2>
 			<p>
-				Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+				Listed below are list of items in need for donation for Sistering.
 			</p>
 			<?php
-			try{
 
-				$host = "localhost";
-				$dbname = "Sistering_inventories";
-				$user = "root";
-				$pass = "";
-
-				$conn = new PDO('mysql:host=$host;dbname=$dbname', $user, $pass);
-				echo "db connected";
-			}catch(PDOException $e){
-				echo $e->getMessage();
-				die("{'status': '500', 'msg': 'Error connecting to DB', 'data': ".json_encode($e->getMessage())." }");
-			}
 		 ?>
 		</div>
 	</div>
@@ -46,15 +47,52 @@ get_header();
 	</div>
 
 	<div class="row items-container">
+
+
 		<div class="col-md-3 items-tiles color-need">
 			<h4 class="items-heading">TOILET PAPER</h4>
 			<img src="<?php echo get_template_directory_uri() . '/assets/images/icons/ios_application_placeholder_white.svg'; ?>">
 			<button class="color-text-pink color-white">BUY NOW</button>
 		</div>
-		<div class="col-md-3 items-tiles color-need">
-			<h4 class="items-heading">TOILET PAPER</h4>
-		</div>
-		<div class="col-md-3 items-tiles color-need">
+
+		<!-- Items -->
+		<!-- <div class="col-md-3 items-tiles color-need"> -->
+			<!-- <h4 class="items-heading">TOILET PAPER</h4> -->
+			<?php
+
+				//sql statement
+				$sql_items = "SELECT * FROM gtc_item_categories";
+
+				try{
+
+					//prepare and execute sql statement
+					$exe_items = $conn->prepare($sql_items);
+					$exe_items->execute();
+
+					// get items
+					$get_items = $exe_items->fetchAll(PDO::FETCH_ASSOC);
+
+				}catch(PDOException $e){
+
+					// print exception
+					echo $e->getMessage();
+				}
+
+				foreach ($get_items as $value) {
+					echo '
+					<div class="col-md-3 items-tiles color-need">
+						<h4 class="items-heading">'.$value['name'].'</h4>
+						<button onclick="getItemsInfo(event, this)" data-toggle="modal" data-target="#itemsInfo" class="btn btn-primary"  >Get Item Info</button>
+					</div>
+					';
+				}
+
+			?>
+
+		<!-- </div> -->
+
+
+		<!-- <div class="col-md-3 items-tiles color-need">
 			<h4 class="items-heading">FEMININE PRODUCTS</h4>
 		</div>
 		<div class="col-md-3 items-tiles color-need">
@@ -71,9 +109,33 @@ get_header();
 		</div>
 		<div class="col-md-3 items-tiles color-want">
 			<h4 class="items-heading">TOILET PAPER</h4>
-		</div>
+		</div>-->
 		<div class="col-md-3 items-tiles color-want">
 			<h4 class="items-heading">TOILET PAPER</h4>
 		</div>
 	</div>
+</div>
+
+
+<!-- MODALS -->
+
+<!-- Modal -->
+<div id="itemsInfo" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Modal Header</h4>
+      </div>
+      <div class="modal-body" id="itemsModalBody">
+        <p>Some text in the modal.</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+
+  </div>
 </div>

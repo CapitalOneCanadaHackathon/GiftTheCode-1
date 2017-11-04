@@ -6,9 +6,9 @@
     $host = "localhost";
     $dbname = "Sistering_inventories";
     $user = "root";
-    $pass = "123";
+    $pass = "root";
 
-    $conn = new PDO('mysql:host=localhost;port=3306;dbname=Sistering_inventories', $user, $pass);
+    $conn = new PDO("mysql:host=$host;dbname=$dbname", $user, $pass);
     echo "db connected";
   }catch(PDOException $e){
     echo $e->getMessage();
