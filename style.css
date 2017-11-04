@@ -85,8 +85,42 @@ input[type=search]{
 	font-size: 2em;
 }
 
+.inventory-item-container{
+	margin-bottom: 3vh;
+	padding: 1em;
+}
+
+.inventory-item-container:hover{
+	background-color: #EAEAEA;
+}
+
+.inventory-item-container button{
+	padding: 0.6em 3.5em 0.6em 3.5em;
+	border: 0;
+	color: #FFF;
+}
+
+
+#itenDetails{
+	visibility: hidden;
+}
+
+.flex{
+	display: flex;
+	flex-direction: row;
+	justify-content: space-evenly;
+}
+
 .margintop2vh{
 	margin-top:2vh;
+}
+
+.marginbottom-med{
+	margin-bottom: 8vh;
+}
+
+.marginbottom-large{
+	margin-bottom: 15vh;
 }
 
 .color-need{
@@ -99,6 +133,14 @@ input[type=search]{
 
 .color-white{
 	background-color: #FFF;
+}
+
+.color-grey{
+	background-color: #B9B9B9;
+}
+
+.color-light-grey{
+	background-color: #EAEAEA;
 }
 
 .color-text-pink{
