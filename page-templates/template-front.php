@@ -42,12 +42,12 @@ try{
 		</div>
 	</div>
 
-
-<!--
+<!-- categories posted PHP -->
+<div class="flex items-cat-container">
 			<?php
 
 				//sql statement
-				$sql_items = "SELECT * FROM  gtc_items g, gtc_item_categories gc
+				$sql_items = "SELECT g.id_item, g.name AS item_name, g.priority, gc.id_item_category, gc.name AS cat_name FROM  gtc_items g, gtc_item_categories gc
 		      WHERE g.id_item = gc.id_item_category ";
 
 				try{
@@ -66,6 +66,7 @@ try{
 				}
 
 				$col = "need"; //want:  green, need: red
+
 
 				foreach ($get_items as $value) {
 
@@ -89,25 +90,22 @@ try{
 
 					// $col = "want";
 					echo '
-					<div class="col-md-3 items-tiles color-'.$col.' ">
-						priority = '.$value['priority'].'
-						<h4 class="items-heading">'.$value['name'].'</h4>
-						<button onclick="getItemsInfo(event, this)" value="'.$value['id_item_category'].'" data-toggle="modal" data-target="#itemsInfo" class="btn btn-primary"  >Get Item Info</button>
+					<div class="items-cat-tiles color-'.$col.'-cat">
+							<a class="flex-center" data-toggle="collapse" href="#collapseExample2" aria-expanded="false" aria-controls="collapseExample2"><h4 class="items-heading">'.$value['cat_name'].'</h4></a>
 					</div>
 					';
 				}
 
-			?> -->
+			?>
+</div>
+<!-- categories end -->
 
 
 	<!-- categories -->
-			<div class="flex items-cat-container">
+			<!-- <div class="flex items-cat-container">
 
 				<div class="items-cat-tiles color-need-cat">
-					<div>
 						<a class="flex-center" data-toggle="collapse" href="#collapseExample2" aria-expanded="false" aria-controls="collapseExample2"><h4 class="items-heading">Toiletries</h4></a>
-					</div>
-
 				</div>
 
 				<div class="items-cat-tiles color-need-cat">
@@ -120,7 +118,7 @@ try{
 					<a href="#" class="flex-center"><h4 class="items-heading">Feminine Products</h4></a>
 				</div>
 
-			</div>
+			</div> -->
 
 
 			<!-- items collapse -->
