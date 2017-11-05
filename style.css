@@ -151,6 +151,7 @@ input[type=search]{
 .color-want .items-heading{
 	background-color: #3AC49A;
 	color: #FFF;
+	padding:0.3em;
 }
 
 .inventory-item-container{
