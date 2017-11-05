@@ -30,11 +30,19 @@ try{
 			<p>
 				Listed below are list of items in need for donation for Sistering.
 			</p>
-			<?php
-
-		 ?>
 		</div>
 	</div>
+
+	<div class="row margintop4vh">
+		<div class="col-md-2">
+			<span class="color-text-pink">URGENT NEED</span>
+		</div>
+		<div class="col-md-2">
+			<span class="color-text-green">NORMAL NEED</span>
+		</div>
+	</div>
+
+
 <!--
 			<?php
 
@@ -91,54 +99,8 @@ try{
 
 			?> -->
 
-	<div class="row margintop4vh">
-		<div class="col-md-2">
-			<span class="color-text-pink">URGENT NEED</span>
-		</div>
-		<div class="col-md-2">
-			<span class="color-text-green">NORMAL NEED</span>
-		</div>
 
-	</div>
-</div>
-
-
-<!-- MODALS -->
-
-<!-- Modal -->
-<div id="itemsInfo" class="modal fade" role="dialog">
-  <div class="modal-dialog">
-
-    <!-- Modal content-->
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h4 class="modal-title">Modal Header</h4>
-      </div>
-      <div class="modal-body" id="itemsModalBody">
-        	<table class="table">
-						<thead>
-							<tr>
-								<th>Name</th>
-								<th>Priority</th>
-							</tr>
-						</thead>
-						<tbody>
-							<!-- populated by ajax -->
-						</tbody>
-					</table>
-
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-      </div>
-    </div>
-
-  </div>
-</div>
-	</div>
-
-
+	<!-- categories -->
 			<div class="flex items-cat-container">
 
 				<div class="items-cat-tiles color-need-cat">
@@ -160,17 +122,18 @@ try{
 
 			</div>
 
+
+			<!-- items collapse -->
 			<div class="row">
-
-				<div class="collapse col-md-12" id="collapseExample2" style="height:500px">
-
+				<div class="collapse col-md-12" id="collapseExample2" >
 					<div class="panel-body">
-
 						<div class="row items-container">
+
 							<div class="col-md-2 items-tiles alert alert-danger">
 								<h4 class="items-heading">TOILET PAPER</h4>
 								<button class="color-text-pink color-white">BUY NOW</button>
 							</div>
+
 							<div class="col-md-2 items-tiles color-need">
 								<h4 class="items-heading">TOILET PAPER</h4>
 							</div>
@@ -192,13 +155,10 @@ try{
 							<div class="col-md-2 items-tiles color-want">
 								<h4 class="items-heading">TOILET PAPER</h4>
 							</div>
+
 						</div>
-
-
 					</div>
 				</div>
-
-
 			</div>
 
 			<div class="row">
