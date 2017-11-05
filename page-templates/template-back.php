@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 /*Template Name: Volunteers - backend */
 
@@ -18,10 +18,13 @@ get_header();
 	<div class="row marginbottom-med">
 		<div class="col-md-12 items-cat-container">
 			<button>all</button>
-			<button>food</button>
-			<button>toiletries</button>
 			<button>clothing</button>
-			<button>electronics</button>
+			<button>toiletries</button>
+			<button>home</button>
+			<button>feminine products</button>
+			<button>first aid</button>
+			<button>food</button>
+			<button>misc.</button>
 			<input type="search" placeholder="search something...">
 		</div>
 	</div>
