@@ -111,7 +111,7 @@ input[type=search]{
 }
 
 .items-tiles svg{
-	max-height: 50%;
+	max-height: 120px;
 	width: 90%;
 	margin-left: 5%;
     margin-top: 20%;
@@ -237,7 +237,7 @@ input[type=search]{
 }
 
 
-path.color-need{
+.color-need path{
 	fill:#fa2a32;
 }
 
@@ -247,10 +247,9 @@ path.color-need{
 	border: 1px solid #5cb85c;
 }
 
-path.color-want{
+.color-want path{
 	fill:#5cb85c;
 }
-
 
 .color-need-cat a{
 	color: #FFF;
@@ -261,7 +260,6 @@ path.color-want{
 }
 
 .color-want{
-	border: 1px solid #5cb85c;
 	color: #5cb85c;
 }
 
@@ -280,13 +278,19 @@ path.color-want{
 .color-white{
 	background-color: #337ab7;
 }
+
+.items-tiles .color-white{
+	background-color: #FFF;
+}
+
 .color-white-cat{
 	background-color: #FFF;
 	color: #337ab7;
 	border: 1px solid #337ab7;
 }
 
-path.color-white{
+
+.color-white path{
 	fill:#337ab7;
 }
 

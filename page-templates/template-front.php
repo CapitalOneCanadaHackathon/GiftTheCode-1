@@ -22,12 +22,6 @@ try{
 
 <input type="hidden" value="<?php echo get_template_directory_uri() ?>" id="serverURI">
 
-<div style="display: none" id="staticColl" class="col-md-2 items-tiles color-need">
-	<h4 class="items-heading">STATIC PAPER</h4>
-	<!--<img src="<?php //echo get_template_directory_uri(); ?>/assets/images/icons/T-Shirt-icon.svg">-->
-	<?php get_template_part('template-parts/graphics/tshirt-icon')?>
-	<button class="cta-btn">BUY NOW</button>
-</div>
 
 <div class="container">
 	<div class="row">
@@ -123,9 +117,9 @@ try{
 							break;
 					}
 
-					// $col = "want";
+					//$col = "want";
 					echo '
-					<div class="items-cat-tiles color-'.$col.'-cat">
+					<div id="cat-'.$value['cat_name'].'" class="items-cat-tiles color-'.$col.'-cat">
 							<button value="'.$value['id_item_category'].'" class="flex-center" data-toggle="collapse" onclick="getItemsInfo(event, this, '.$collapse.' )" href="#collapseExample'.$collapse.'" aria-expanded="false" aria-controls="collapseExample'.$collapse.'"><h4 class="items-heading">'.$value['cat_name'].'</h4></button>
 					</div>
 					';
@@ -141,6 +135,109 @@ try{
 			?>
 <!-- categories end -->
 
+<?php 
+
+	$svgname = $value['item_name'];
+	$SVGpath='template-parts/graphics/' . $svgname; 
+	/* set $SVGNAME to whatever name is echoed in querie */
+
+?>
+
+<div style="display: none" id="staticColl" class="col-md-2 items-tiles color-need">
+	<h4 class="items-heading">STATIC PAPER</h4>
+	<!--<img src="<?php //echo get_template_directory_uri(); ?>/assets/images/icons/T-Shirt-icon.svg">-->
+	<?php get_template_part($SVGpath)?>
+	<button class="cta-btn">BUY NOW</button>
+</div>
+
+
+<?php
+/* Attempt MySQL server connection. Assuming you are running MySQL
+server with default setting (user 'root' with no password) */
+$link = mysqli_connect("localhost", "root", "root", "Sistering_inventories");
+ 
+// Check connection
+if($link === false){
+    die("ERROR: Could not connect. " . mysqli_connect_error());
+}
+ 
+// Attempt select query execution
+$sql = "SELECT * FROM gtc_items";
+if($result = mysqli_query($link, $sql)){
+    if(mysqli_num_rows($result) > 0){
+       /* echo "<table>";
+            echo "<tr>";
+                echo "<th>id</th>";
+                echo "<th>cat</th>";
+                echo "<th>priority</th>";
+            echo "</tr>";*/
+        while($row = mysqli_fetch_array($result)):
+
+        	$svgname = $row['name'];
+			$SVGpath='template-parts/graphics/' . $svgname; 
+			$priority = $row['priority'];
+			$priorityclass;
+			$itemcategory = $row['id_item_category'];
+			$btnCTA;
+			$visibility;
+
+			if( $priority == 'High' ){
+
+				$priorityclass = 'color-need';
+				$visibility = 'block';
+
+			}
+
+			if( $priority == 'Medium' ){
+
+				$priorityclass = 'color-want';
+				$visibility = 'none';
+
+
+			}
+
+			if( $priority == 'Low' ){
+
+				$priorityclass = 'color-white';
+				$visibility = 'none';
+
+			}
+
+
+			/* set $SVGNAME to whatever name is echoed in querie */ ?>
+
+
+        	<div id="<?php echo $itemcategory . '-child' ;?>" data-category="<?php echo $itemcategory;?>" class="col-md-2 items-tiles <?php echo $priorityclass; ?>">
+				<h4 class="items-heading"><?php echo $svgname;?></h4>
+				<?php get_template_part($SVGpath)?>
+				<button class="cta-btn" style="display:<?php echo $visibility;?>">BUY NOW</button>
+			</div>
+
+
+            
+        <?php 
+
+        /*echo "<tr>";
+                echo "<td>" . $row['name'] . "</td>";
+                echo "<td>" . $row['id_item_category'] . "</td>";
+                echo "<td>" . $row['priority'] . "</td>";
+            echo "</tr>";*/
+
+
+   		endwhile;
+        //echo "</table>";
+        // Free result set
+        mysqli_free_result($result);
+    } else{
+        echo "No records matching your query were found.";
+    }
+} else{
+    echo "ERROR: Could not able to execute $sql. " . mysqli_error($link);
+}
+ 
+// Close connection
+mysqli_close($link);
+?>
 
 	<!-- categories -->
 			<!-- <div class="flex items-cat-container">

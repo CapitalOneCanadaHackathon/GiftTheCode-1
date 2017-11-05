@@ -1,8 +1,6 @@
-/*$('#itemID').click(function(){
+$("#1-child").each(function(){
 
-	$('#itemDetails').toggle();
-	alter('clicks');
+	$("#1-child").detach().appendTo("#cat-Clothing");
 
-});*/
-
+});
 
