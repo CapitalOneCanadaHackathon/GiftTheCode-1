@@ -323,16 +323,26 @@ input[type=search]{
 }
 
 .recordData .tableTitles {
-	border: solid thin grey;
-	background-color: purple;
+	background-color: #7000e6;
 	color: white;
 	font-size: 1.2em;
 	padding: 1em;
 	margin-bottom: 1em;
 }
 
+.recordData h3 {
+	color: #00d2d2;
+	font-weight: bold;
+	padding-bottom: .5em;
+}
+
+#recordData {
+	padding: 1em;
+}
+
 #recordData .row:nth-child(even){
 	background-color: #D9D9D9;
+	color: black;
 }
 
 
