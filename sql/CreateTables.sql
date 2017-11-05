@@ -31,6 +31,7 @@ CREATE TABLE IF NOT EXISTS `gtc_items` (
   `requested` bit(1) NOT NULL DEFAULT b'0',
   `priority` varchar(6) NOT NULL DEFAULT 'Low',
   `memo` varchar(200) DEFAULT NULL,
+  `img` varchar(20000) DEFAULT NULL,
   PRIMARY KEY (`id_item`),
   KEY `id_item_category` (`id_item_category`),
   KEY `updated_by` (`updated_by`),
@@ -69,7 +70,7 @@ DROP TABLE IF EXISTS `gtc_item_categories`;
 CREATE TABLE IF NOT EXISTS `gtc_item_categories` (
   `id_item_category` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(30) NOT NULL,
-  `img` varchar(30) DEFAULT NULL,
+  `img` varchar(20000) DEFAULT NULL,
   PRIMARY KEY (`id_item_category`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 

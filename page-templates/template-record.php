@@ -52,48 +52,52 @@ try{
 	}
 ?>
 
- <div class="container">
+ <div class="container recordData">
 
 	 <div class="row">
 		 <div class="col">
-			 <h4>Inventory History</h4>
+			 <h3>Inventory History</h3>
 		 </div>
 	 </div>
 
-	 <div class="row">
+	 <div class="row tableTitles">
 		 <div class="col-sm-2">Date</div>
 		 <div class="col-sm-2">Volunteer</div>
 		 <div class="col-sm-2">Item</div>
 		 <div class="col-sm-1">Priority</div>
-		 <div class="col-sm-4">Memo</div>
-		 <div class="col-sm-1">Action</div>
+		 <div class="col-sm-3">Memo</div>
+		 <div class="col-sm-2">Action</div>
 	 </div>
 
+<div id="recordData">
 	 <?php
 	 foreach ($get_items as $value) { ?>
+
 		 <div class="row">
 			<div class="col-sm-2"><?php echo $value['time'] ?></div>
 			<div class="col-sm-2"><?php echo $value['volunteer_name']; ?></div>
 			<div class="col-sm-2"><?php echo $value['item_name']; ?></div>
 			<div class="col-sm-1"><?php echo $value['priority'] ?></div>
-			<div class="col-sm-4"><?php echo $value['memo'] ?></div>
-			<div class="col-sm-1"><?php echo $value['action'] ?></div>
+			<div class="col-sm-3"><?php echo $value['memo'] ?></div>
+			<div class="col-sm-2"><?php echo $value['action'] ?></div>
 		</div>
+
 	<?php
 	 }
 	  ?>
+	</div>
  </div>
 
 <br>
 
- <div class="container">
+ <div class="container recordData">
 
 	 <div class="row">
 		 <div class="col">
-			 <h4>High Priority Items</h4>
+			 <h3>High Priority Items</h3>
 		 </div>
 	 </div>
-	 <div class="row">
+	 <div id="tableTwo" class="row tableTitles">
 		 <div class="col-sm-3">Item</div>
 		 <div class="col-sm-3">Average per Month</div>
 	 </div>
