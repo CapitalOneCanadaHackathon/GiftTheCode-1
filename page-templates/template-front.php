@@ -135,6 +135,13 @@ try{
 			?>
 <!-- categories end -->
 
+<div id="category-clothing"></div>
+<div id="category-toiletries"></div>
+<div id="category-home"></div>
+<div id="category-feminine"></div>
+<div id="category-firstaid"></div>
+<div id="category-food"></div>
+<div id="category-misc"></div>
 
 <!-- listing and displaying sample item data -->
 
