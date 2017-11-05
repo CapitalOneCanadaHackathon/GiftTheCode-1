@@ -7,9 +7,9 @@ get_header();
 try{
 
 	$host = "localhost";
-	$dbname = "Sistering_inventories";
+	$dbname = "sistering_inventories";
 	$user = "root";
-	$pass = "root";
+	$pass = "";
 
 	$conn = new PDO("mysql:host=$host;dbname=$dbname", $user, $pass);
 	echo "db connected";
@@ -135,7 +135,6 @@ try{
 			?>
 <!-- categories end -->
 
-
 <div id="category-clothing"></div>
 <div id="category-toiletries"></div>
 <div id="category-home"></div>
@@ -146,10 +145,10 @@ try{
 
 <!-- listing and displaying sample item data -->
 
-<?php 
+<?php
 
 	$svgname = $value['item_name'];
-	$SVGpath='template-parts/graphics/' . $svgname; 
+	$SVGpath='template-parts/graphics/' . $svgname;
 	/* set $SVGNAME to whatever name is echoed in querie */
 
 ?>
@@ -166,12 +165,12 @@ try{
 /* Attempt MySQL server connection. Assuming you are running MySQL
 server with default setting (user 'root' with no password) */
 $link = mysqli_connect("localhost", "root", "root", "Sistering_inventories");
- 
+
 // Check connection
 if($link === false){
     die("ERROR: Could not connect. " . mysqli_connect_error());
 }
- 
+
 // Attempt select query execution
 $sql = "SELECT * FROM gtc_items";
 if($result = mysqli_query($link, $sql)){
@@ -185,7 +184,7 @@ if($result = mysqli_query($link, $sql)){
         while($row = mysqli_fetch_array($result)):
 
         	$svgname = $row['name'];
-			$SVGpath='template-parts/graphics/' . $svgname; 
+			$SVGpath='template-parts/graphics/' . $svgname;
 			$priority = $row['priority'];
 			$priorityclass;
 			$itemcategory = $row['id_item_category'];
@@ -225,8 +224,8 @@ if($result = mysqli_query($link, $sql)){
 			</div>
 
 
-            
-        <?php 
+
+        <?php
 
         /*echo "<tr>";
                 echo "<td>" . $row['name'] . "</td>";
@@ -245,7 +244,7 @@ if($result = mysqli_query($link, $sql)){
 } else{
     echo "ERROR: Could not able to execute $sql. " . mysqli_error($link);
 }
- 
+
 // Close connection
 mysqli_close($link);
 ?>
