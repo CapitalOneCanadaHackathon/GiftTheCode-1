@@ -5,10 +5,10 @@ INSERT INTO gtc_volunteers (`name`, `phone`, `email`, `password`)
 VALUES('Feier Lai', '416-123-3434', 'feier@hotmail.com', 'password123');
 
 INSERT INTO gtc_volunteers (`name`, `phone`, `email`, `password`)
-VALUES('Tanaka Ruzvidzo', '416-255-5940', 'jody@hotmail.com', 'password123');
+VALUES('Tanaka Ruzvidzo', '416-212-5440', 'tanaka@hotmail.com', 'password123');
 
 INSERT INTO gtc_volunteers (`name`, `phone`, `email`, `password`)
-VALUES('Saeed Alam', '416-255-5940', 'jody@hotmail.com', 'password123');
+VALUES('Saeed Alam', '416-233-5432', 'saeed@hotmail.com', 'password123');
 
 
 INSERT INTO gtc_item_categories (`name`,`img`)
