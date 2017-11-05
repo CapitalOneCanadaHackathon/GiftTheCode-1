@@ -58,6 +58,7 @@ CREATE TABLE IF NOT EXISTS `gtc_items_timestamp` (
   `id_volunteer` int(11) DEFAULT NULL,
   `id_item` int(11) NOT NULL,
   `memo` varchar(200) DEFAULT NULL,
+  `priority` varchar(6) NOT NULL DEFAULT 'Low',
   `description` varchar(200) NOT NULL,
   PRIMARY KEY (`id_items_timestamp`),
   KEY `fk_id_volunteer` (`id_volunteer`),
