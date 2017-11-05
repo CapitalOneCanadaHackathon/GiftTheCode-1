@@ -81,7 +81,7 @@ try{
 						echo "
 						</div>
 						";
-						echo '	<div class="row">
+						echo '<div class="row">
 								<div class="collapse col-md-12" id="collapseExample'.$collapse.'" >
 									<div class="panel-body">
 										<div class="row items-container" id="appendHere">
@@ -128,6 +128,16 @@ try{
 					$i++;
 					if ($i == count($get_items) ){
 						echo '</div>';
+						echo '<div class="row">
+								<div class="collapse col-md-12" id="collapseExample'.$collapse.'" >
+									<div class="panel-body">
+										<div class="row items-container" id="appendHere">
+
+
+											</div>
+									</div>
+								</div>
+							</div>';
 					}
 
 				}
@@ -153,10 +163,20 @@ try{
 
 ?>
 
-<div style="display: none" id="staticColl" class="col-md-2 items-tiles color-need">
+<div style="display: none" class="col-md-2 items-tiles ">
 	<h4 class="items-heading">STATIC PAPER</h4>
 	<!--<img src="<?php //echo get_template_directory_uri(); ?>/assets/images/icons/T-Shirt-icon.svg">-->
 	<?php get_template_part($SVGpath)?>
+	<button class="cta-btn">BUY NOW</button>
+</div>
+
+<!-- Hidden element used for cloning  -->
+<div style="display: none" id="staticColl"  data-category="" class="col-md-2 items-tiles">
+	<h4 class="items-heading"><?php echo $svgname;?></h4>
+	<!-- Empty to div to enter svg -->
+	<div class="svg_loc" >
+
+	</div>
 	<button class="cta-btn">BUY NOW</button>
 </div>
 
@@ -164,7 +184,7 @@ try{
 <?php
 /* Attempt MySQL server connection. Assuming you are running MySQL
 server with default setting (user 'root' with no password) */
-$link = mysqli_connect("localhost", "root", "root", "Sistering_inventories");
+$link = mysqli_connect("localhost", "root", "", "Sistering_inventories");
 
 // Check connection
 if($link === false){
@@ -173,14 +193,22 @@ if($link === false){
 
 // Attempt select query execution
 $sql = "SELECT * FROM gtc_items";
+
+try{
+	$exe_all_items = $conn-> prepare($sql);
+	$exe_all_items -> execute();
+
+	$get_all_items = $exe_all_items->fetchAll(PDO::FETCH_ASSOC);
+	// echo "Print res";
+	// print_r($get_all_items);
+
+}catch(PDOException $e){
+	echo $e->getMessage();
+}
+
 if($result = mysqli_query($link, $sql)){
     if(mysqli_num_rows($result) > 0){
-       /* echo "<table>";
-            echo "<tr>";
-                echo "<th>id</th>";
-                echo "<th>cat</th>";
-                echo "<th>priority</th>";
-            echo "</tr>";*/
+
         while($row = mysqli_fetch_array($result)):
 
         	$svgname = $row['name'];
@@ -217,25 +245,19 @@ if($result = mysqli_query($link, $sql)){
 			/* set $SVGNAME to whatever name is echoed in querie */ ?>
 
 
-        	<div data-category="<?php echo $itemcategory;?>" class="col-md-2 items-tiles <?php echo $priorityclass . '  ' . $itemcategory . '-child'; ?>">
-				<h4 class="items-heading"><?php echo $svgname;?></h4>
-				<?php get_template_part($SVGpath)?>
-				<button class="cta-btn" style="display:<?php echo $visibility;?>">BUY NOW</button>
-			</div>
+        	<!-- <div data-category="<?php echo $itemcategory;?>" class="col-md-2 items-tiles <?php echo $priorityclass . '  ' . $itemcategory . '-child'; ?>"> -->
+				<!-- <h4 class="items-heading"><?php echo $svgname;?></h4> -->
+				<!-- <?php get_template_part($SVGpath)?> -->
+				<!-- <button class="cta-btn" style="display:<?php echo $visibility;?>">BUY NOW</button> -->
+			<!-- </div>  -->
 
 
 
         <?php
 
-        /*echo "<tr>";
-                echo "<td>" . $row['name'] . "</td>";
-                echo "<td>" . $row['id_item_category'] . "</td>";
-                echo "<td>" . $row['priority'] . "</td>";
-            echo "</tr>";*/
-
 
    		endwhile;
-        //echo "</table>";
+
         // Free result set
         mysqli_free_result($result);
     } else{
@@ -245,68 +267,7 @@ if($result = mysqli_query($link, $sql)){
     echo "ERROR: Could not able to execute $sql. " . mysqli_error($link);
 }
 
-// Close connection
-mysqli_close($link);
 ?>
 
-<!-- sample item data end-->
-
-	<!-- categories -->
-			<!-- <div class="flex items-cat-container">
-
-				<div class="items-cat-tiles color-need-cat">
-						<a class="flex-center" data-toggle="collapse" href="#collapseExample2" aria-expanded="false" aria-controls="collapseExample2"><h4 class="items-heading">Toiletries</h4></a>
-				</div>
-
-				<div class="items-cat-tiles color-need-cat">
-					<a href="#" class="flex-center"><h4 class="items-heading">Clothing</h4></a>
-				</div>
-				<div class="items-cat-tiles color-need-cat">
-					<a href="#" class="flex-center"><h4 class="items-heading">Home</h4></a>
-				</div>
-				<div class="items-cat-tiles color-want-cat">
-					<a href="#" class="flex-center"><h4 class="items-heading">Feminine Products</h4></a>
-				</div>
-
-			</div> -->
-
-
-			<!-- items collapse -->
-			<!-- <div class="row">
-				<div class="collapse col-md-12" id="collapseExample2" >
-					<div class="panel-body">
-						<div class="row items-container">
-
-							<div class="col-md-2 items-tiles alert alert-danger">
-								<h4 class="items-heading">TOILET PAPER</h4>
-								<button class="color-text-pink color-white">BUY NOW</button>
-							</div>
-
-							<div class="col-md-2 items-tiles color-need">
-								<h4 class="items-heading">TOILET PAPER</h4>
-							</div>
-							<div class="col-md-2 items-tiles color-need">
-								<h4 class="items-heading">FEMININE PRODUCTS</h4>
-							</div>
-							<div class="col-md-2 items-tiles color-need">
-								<h4 class="items-heading">FACE WASH</h4>
-							</div>
-							<div class="col-md-2 items-tiles color-need">
-								<h4 class="items-heading">TOOTHPASTE</h4>
-							</div>
-							<div class="col-md-2 items-tiles color-want">
-								<h4 class="items-heading">SHAMPOO</h4>
-							</div>
-							<div class="col-md-2 items-tiles color-want">
-								<h4 class="items-heading">TOILET PAPER</h4>
-							</div>
-							<div class="col-md-2 items-tiles color-want">
-								<h4 class="items-heading">TOILET PAPER</h4>
-							</div>
-
-						</div>
-					</div>
-				</div>
-			</div> -->
 
 </div>
