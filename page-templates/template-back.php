@@ -29,29 +29,56 @@ get_header();
 		</div>
 	</div>
 
-	<div class="row inventory-item-container">
-		<div class="col-md-6">
-			ITEM
-		</div>
-		<div class="col-md-6">
-			<div class="flex">
-				<button class="color-need">NEED</button>
-				<button class="color-want">WANT</button>
-				<button>NO NEED</button>
-			</div>
-		</div>
-	</div>
+<?php
+	try{
 
+		$host = "localhost";
+		$dbname = "sistering_inventories";
+		$user = "root";
+		$pass = "";
+
+		$conn = new PDO("mysql:host=$host;dbname=$dbname", $user, $pass);
+		//echo "db connected";
+	}catch(PDOException $e){
+		// echo $e->getMessage();
+		die("{'status': '500', 'msg': 'Error connecting to DB', 'data': ".json_encode($e->getMessage())." }");
+	}
+
+	//sql statement
+	$sql_items = "SELECT c.name AS category_name, i.name, i.size, i.priority, i.requested, i.memo
+								FROM  gtc_items i, gtc_item_categories c
+								WHERE i.id_item_category = c.id_item_category";
+
+	try{
+		//prepare and execute sql statement
+		$exe_items = $conn->prepare($sql_items);
+		$exe_items->execute();
+
+		// get items
+		$get_items = $exe_items->fetchAll(PDO::FETCH_ASSOC);
+	}catch(PDOException $e){
+		// print exception
+		echo $e->getMessage();
+	}
+// print_r($get_items);
+?>
+
+<?php
+
+$id = 0;
+foreach ($get_items as $value) {
+$id++; ?>
 	<div class="row inventory-item-container">
 		<div class="col-md-6">
 			<div class="row">
-				<div class="col-md-12 inventory-item-label" data-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample">ITEM</div>
+				<div class="col-md-12 inventory-item-label" data-toggle="collapse" href="#collapseExample<?php  echo $id; ?>" aria-expanded="false" aria-controls="collapseExample"><?php echo strtoupper($value['name'])." "; ?><?php if(isset($value['size'])){ echo "  size ".$value['size'];} ?></div>
 			</div>
 			<div class="row">
-				<div class="col-md-12 inventory-item-details collapse" id="collapseExample">
-				+ details<br>
-				+ details<br>
-				+ details
+				<div class="col-md-12 inventory-item-details collapse" id="collapseExample<?php  echo $id; ?>">
+					<?php echo strtoupper($value['category_name']); ?><br>
+					<?php echo "Priority Level: ". $value['priority']; ?><br>
+					<?php if(isset($value['requested']) && $value['requested'] == 1){ echo "Item Requested";} ?>
+				  <?php if(isset($value['memo'])){ echo $value['memo'];} ?>
 				</div>
 			</div>
 		</div>
@@ -63,45 +90,8 @@ get_header();
 			</div>
 		</div>
 	</div>
-
-	<div class="row inventory-item-container">
-		<div class="col-md-6">
-			ITEM
-		</div>
-		<div class="col-md-6">
-			<div class="flex">
-				<button class="color-need">NEED</button>
-				<button class="color-want">WANT</button>
-				<button>NO NEED</button>
-			</div>
-		</div>
-	</div>
-
-	<div class="row inventory-item-container">
-		<div class="col-md-6">
-			ITEM
-		</div>
-		<div class="col-md-6">
-			<div class="flex">
-				<button class="color-need">NEED</button>
-				<button class="color-want">WANT</button>
-				<button>NO NEED</button>
-			</div>
-		</div>
-	</div>
-
-	<div class="row inventory-item-container">
-		<div class="col-md-6">
-			ITEM
-		</div>
-		<div class="col-md-6">
-			<div class="flex">
-				<button class="color-need">NEED</button>
-				<button class="color-want">WANT</button>
-				<button>NO NEED</button>
-			</div>
-		</div>
-	</div>
-
+<?php
+}
+ ?>
 
 </div>
