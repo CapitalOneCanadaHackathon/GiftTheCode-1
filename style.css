@@ -73,12 +73,27 @@ input[type=search]{
 	height: 20vw;
 	color: #FFF;
 	border: 0.2vw solid #FFF;
+	border-radius: 15px;
 }
 
 .items-cat-tiles{
 	height: 10vw;
 	color: #FFF;
 	border: 0.2vw solid #FFF;
+}
+
+.items-cat-tiles a{
+	height: 100%;
+	width: 100%;
+	color: #FFF;
+}
+
+.items-cat-tiles a:hover{
+	text-decoration: none;
+}
+
+.items-cat-tiles a:focus{
+	text-decoration: none;
 }
 
 .items-tiles img{
