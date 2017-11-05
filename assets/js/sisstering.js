@@ -68,9 +68,8 @@ function getItemsInfo(e , elem, collpaseIndex){
           cloneDiv.find("h4").html(data.data[i].item_name);
           var svg_div = cloneDiv.children(".svg_loc");
 
-
-          svg_div.html(String(data.data[i].img));
-          console.log(svg);
+          //populate div with svg content
+          svg_div.html(String(data.data[i].item_img));
 
           cloneDiv.show();
           // cloneDiv.appendTo(containerCol[0]);
