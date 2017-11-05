@@ -276,11 +276,14 @@ input[type=search]{
 }
 
 .color-white{
-	background-color: #337ab7;
+	background-color: #FFF;
 }
 
-.items-tiles .color-white{
-	background-color: #FFF;
+.color-white .items-heading{
+	background-color: #337ab7;
+	color: #FFF;
+    padding: 0.3em;
+
 }
 
 .color-white-cat{
