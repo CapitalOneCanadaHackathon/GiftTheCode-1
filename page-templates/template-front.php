@@ -22,9 +22,11 @@ try{
 
 <input type="hidden" value="<?php echo get_template_directory_uri() ?>" id="serverURI">
 
-<div style="display: none" id="staticColl" class="col-md-2 items-tiles alert alert-danger col-header">
+<div style="display: none" id="staticColl" class="col-md-2 items-tiles color-need">
 	<h4 class="items-heading">STATIC PAPER</h4>
-	<button class="color-text-pink color-white">BUY NOW</button>
+	<!--<img src="<?php //echo get_template_directory_uri(); ?>/assets/images/icons/T-Shirt-icon.svg">-->
+	<?php get_template_part('template-parts/graphics/tshirt-icon')?>
+	<button class="cta-btn">BUY NOW</button>
 </div>
 
 <div class="container">
@@ -43,6 +45,9 @@ try{
 		</div>
 		<div class="col-md-2">
 			<span class="color-text-green">NORMAL NEED</span>
+		</div>
+		<div class="col-md-2">
+			<span class="color-text-blue">STOCK OK</span>
 		</div>
 	</div>
 
@@ -194,17 +199,5 @@ try{
 					</div>
 				</div>
 			</div> -->
-
-			<div class="row">
-				<div class="col-md-3 items-cat-tiles color-need">
-					<a href="#" class="flex-center"><h4 class="items-heading">First Aid</h4></a>
-				</div>
-				<div class="col-md-3 items-cat-tiles color-want">
-					<a href="#" class="flex-center"><h4 class="items-heading">Food</h4></a>
-				</div>
-				<div class="col-md-3 items-cat-tiles color-want">
-					<a href="#" class="flex-center"><h4 class="items-heading">Miscellaneous</h4></a>
-				</div>
-			</div>
 
 </div>
