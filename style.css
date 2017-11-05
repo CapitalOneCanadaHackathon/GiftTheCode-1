@@ -16,6 +16,14 @@ Use it to make something cool, have fun, and share what you've learned with othe
 
 @import url('https://fonts.googleapis.com/css?family=Raleway:200,200i,400,600,700,800,900');
 
+html,body
+{
+    width: 100%;
+    margin: 0px;
+    padding: 0px;
+    overflow-x: hidden; 
+}
+
 body{
 	font-family: Raleway;
 }
@@ -43,7 +51,7 @@ input[type=search]{
 }
 
 .items-container{
-	margin-top: 6vh;
+	margin-bottom: 5vh;
 }
 
 .items-cat-container{
@@ -63,6 +71,12 @@ input[type=search]{
 
 .items-tiles{
 	height: 20vw;
+	color: #FFF;
+	border: 0.2vw solid #FFF;
+}
+
+.items-cat-tiles{
+	height: 10vw;
 	color: #FFF;
 	border: 0.2vw solid #FFF;
 }
@@ -100,9 +114,8 @@ input[type=search]{
 	color: #FFF;
 }
 
-
-#itenDetails{
-	visibility: hidden;
+.panel{
+	margin-top: 5vh;
 }
 
 .flex{
@@ -111,8 +124,19 @@ input[type=search]{
 	justify-content: space-evenly;
 }
 
+.flex-center{
+	display:flex;
+	justify-content:center;
+	align-items: center;
+	flex-wrap: wrap;
+}
+
 .margintop2vh{
 	margin-top:2vh;
+}
+
+.margintop4vh{
+	margin-top:4vh;
 }
 
 .marginbottom-med{
