@@ -69,7 +69,7 @@ DROP TABLE IF EXISTS `gtc_item_categories`;
 CREATE TABLE IF NOT EXISTS `gtc_item_categories` (
   `id_item_category` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(30) NOT NULL,
-  `img` varchar DEFAULT NULL,
+  `img` varchar(20000) DEFAULT NULL,
   PRIMARY KEY (`id_item_category`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 

@@ -322,6 +322,20 @@ input[type=search]{
 	color: #337ab7;
 }
 
+.recordData .tableTitles {
+	border: solid thin grey;
+	background-color: purple;
+	color: white;
+	font-size: 1.2em;
+	padding: 1em;
+	margin-bottom: 1em;
+}
+
+#recordData .row:nth-child(even){
+	background-color: #D9D9D9;
+}
+
+
 /* Mobile styles */
 
 @media (max-width: 991px) {
