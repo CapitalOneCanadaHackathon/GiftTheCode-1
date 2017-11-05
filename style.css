@@ -16,6 +16,14 @@ Use it to make something cool, have fun, and share what you've learned with othe
 
 @import url('https://fonts.googleapis.com/css?family=Raleway:200,200i,400,600,700,800,900');
 
+html,body
+{
+    width: 100%;
+    margin: 0px;
+    padding: 0px;
+    overflow-x: hidden;
+}
+
 body{
 	font-family: Raleway;
 }
@@ -42,8 +50,15 @@ input[type=search]{
 	font-size: 6em;
 }
 
+.items-cat-container{
+	margin-bottom: 2vh;
+}
+
+
 .items-container{
-	margin-top: 6vh;
+	margin-bottom: 5vh;
+	width:90vw;
+	margin-left:5vw;
 }
 
 .items-cat-container{
@@ -62,9 +77,30 @@ input[type=search]{
 }
 
 .items-tiles{
-	height: 20vw;
+	height: 15vw;
+	border: 0.2vw solid #FFF;
+	border-radius: 15px;
+}
+
+.items-cat-tiles{
+	height: 6vw;
+	width: 30vw;
 	color: #FFF;
 	border: 0.2vw solid #FFF;
+}
+
+.items-cat-tiles a{
+	height: 100%;
+	width: 100%;
+	color: #FFF;
+}
+
+.items-cat-tiles a:hover{
+	text-decoration: none;
+}
+
+.items-cat-tiles a:focus{
+	text-decoration: none;
 }
 
 .items-tiles img{
@@ -85,18 +121,161 @@ input[type=search]{
 	font-size: 2em;
 }
 
+.inventory-item-container{
+	margin-bottom: 3vh;
+	padding: 1em;
+}
+
+.inventory-item-container:hover{
+	background-color: #EAEAEA;
+}
+
+.inventory-item-container button{
+	padding: 0.6em 3.5em 0.6em 3.5em;
+	border: 0;
+	color: #FFF;
+}
+
+.panel{
+	margin-top: 5vh;
+}
+
+.flex{
+	display: flex;
+	flex-direction: row;
+	justify-content: space-evenly;
+}
+
+.flex-center{
+	display:flex;
+	justify-content:center;
+	align-items: center;
+	flex-wrap: wrap;
+}
+
+.margintop2vh{
+	margin-top:2vh;
+}
+
+.margintop4vh{
+	margin-top:4vh;
+}
+
+.marginbottom-med{
+	margin-bottom: 8vh;
+}
+
+.marginbottom-large{
+	margin-bottom: 15vh;
+}
+
 .color-need{
-	background-color: #FA2A32; /*red*/
+	border: 1px solid #FA2A32;
+	color: #ed5e64;
+}
+
+.color-need a{
+	color: #FA2A32;
+}
+
+.color-need-cat{
+	background-color: #FA2A32;
+	border-radius: 15px;
+	margin: 1em;
+}
+
+.color-want-cat{
+	background-color: #5cb85c;
+	border-radius: 15px;
+	margin:1em;
+}
+
+.color-need-cat a{
+	color: #FFF;
+}
+
+.color-want-cat a{
+	color: #FFF;
 }
 
 .color-want{
-	background-color: #5cb85c; /* green*/
+	border: 1px solid #5cb85c;
+	color: #5cb85c;
+}
+
+.color-want a{
+	color: #5cb85c;
 }
 
 .color-white{
 	background-color: #FFF;
 }
 
+.color-grey{
+	background-color: #B9B9B9;
+}
+
+.color-light-grey{
+	background-color: #EAEAEA;
+}
+
 .color-text-pink{
 	color: #FA2A32;
+}
+
+.color-text-green{
+	color: #3AC49A;
+}
+
+/* Mobile styles */
+
+@media (max-width: 991px) {
+	html, body {
+		width: 100%;
+		margin: 0px;
+		margin-top: -10em;
+		padding: 0px;
+		overflow-x: hidden;
+	}
+
+	.inventory-item-container {
+		text-align: center;
+		flex-wrap: wrap;
+	}
+
+	.inventory-item-container button {
+		width: 100%;
+	}
+
+	.inventory-item-container .col-md-6:nth-child(1) {
+		font-size: 1.5em;
+	}
+
+	.flex {
+		flex-wrap: wrap;
+	}
+
+	.items-cat-container {
+		flex-wrap: wrap;
+		margin: 0 auto;
+		margin-top: 2em;
+	}
+
+	.items-cat-container button {
+		width: 31%;
+		margin: .2em;
+	}
+
+	.items-cat-container button:nth-child(5) {
+		width: 64%;
+	}
+
+	.items-cat-container input {
+		text-align: center;
+		width: 50%;
+		padding: 1px;
+		margin: auto;
+		margin-top: 1.5em;
+		margin-bottom: -1em;
+	}
 }
