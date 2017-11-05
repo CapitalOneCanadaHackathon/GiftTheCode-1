@@ -12,7 +12,7 @@ try{
 	$pass = "root";
 
 	$conn = new PDO("mysql:host=$host;dbname=$dbname", $user, $pass);
-	echo "db connected";
+	
 }catch(PDOException $e){
 	// echo $e->getMessage();
 	die("{'status': '500', 'msg': 'Error connecting to DB', 'data': ".json_encode($e->getMessage())." }");
@@ -35,13 +35,13 @@ try{
 
 	<div class="row margintop4vh">
 		<div class="col-md-2">
-			<span class="color-text-pink">URGENT NEED</span>
+			<span class="color-text-pink">URGENT NEED &#9679;</span>
 		</div>
 		<div class="col-md-2">
-			<span class="color-text-green">NORMAL NEED</span>
+			<span class="color-text-green">NORMAL NEED &#9679;</span>
 		</div>
 		<div class="col-md-2">
-			<span class="color-text-blue">STOCK OK</span>
+			<span class="color-text-blue">STOCK OK &#9679;</span>
 		</div>
 	</div>
 
@@ -120,7 +120,7 @@ try{
 					//$col = "want";
 					echo '
 					<div id="cat-'.$value['cat_name'].'" class="items-cat-tiles color-'.$col.'-cat">
-							<button value="'.$value['id_item_category'].'" class="flex-center" data-toggle="collapse" onclick="getItemsInfo(event, this, '.$collapse.' )" href="#collapseExample'.$collapse.'" aria-expanded="false" aria-controls="collapseExample'.$collapse.'"><h4 class="items-heading">'.$value['cat_name'].'</h4></button>
+							<button value="'.$value['id_item_category'].'" class="flex-center" data-toggle="collapse" onclick="getItemsInfo(event, this, '.$collapse.' )" href="#collapseExample'.$collapse.'" aria-expanded="false" aria-controls="collapseExample'.$collapse.'"><h4 class="items-heading">'.$value['cat_name'].' <span class="status-bullet">&#9679;</span></h4></button>
 					</div>
 					';
 
@@ -152,6 +152,7 @@ try{
 <div id="category-firstaid"></div>
 <div id="category-food"></div>
 <div id="category-misc"></div>
+
 
 <!-- listing and displaying sample item data -->
 

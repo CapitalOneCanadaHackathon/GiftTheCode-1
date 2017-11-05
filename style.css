@@ -350,6 +350,28 @@ input[type=search]{
 }
 
 
+#cat-Clothing .status-bullet{
+	color: red;
+}
+
+#cat-Toiletries .status-bullet{
+	color: #3AC49A
+}
+
+#cat-Miscellaneous .status-bullet{
+	color: #337ab7;
+}
+
+#cat-Home .status-bullet{
+	color: #337ab7;
+}
+
+#cat-Food .status-bullet{
+	color: #337ab7;
+}
+
+
+
 /* Mobile styles */
 
 @media (max-width: 991px) {
