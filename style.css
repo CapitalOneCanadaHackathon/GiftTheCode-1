@@ -86,11 +86,11 @@ input[type=search]{
 }
 
 .color-need{
-	background-color: #FA2A32;
+	background-color: #FA2A32; /*red*/
 }
 
 .color-want{
-	background-color: #3AC49A;
+	background-color: #5cb85c; /* green*/
 }
 
 .color-white{

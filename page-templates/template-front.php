@@ -20,7 +20,7 @@ try{
 
 ?>
 
-<input type="hidden" value="<?php echo get_template_directory() ?>" id="serverURI">
+<input type="hidden" value="<?php echo get_template_directory_uri() ?>" id="serverURI">
 
 
 <div class="container">
@@ -61,7 +61,8 @@ try{
 			<?php
 
 				//sql statement
-				$sql_items = "SELECT * FROM gtc_item_categories";
+				$sql_items = "SELECT * FROM  gtc_items g, gtc_item_categories gc
+		      WHERE g.id_item = gc.id_item_category ";
 
 				try{
 
@@ -78,11 +79,34 @@ try{
 					echo $e->getMessage();
 				}
 
+				$col = "need"; //want:  green, need: red
+
 				foreach ($get_items as $value) {
+
+					switch ($value['priority']) {
+						case 'Low':
+							$col = "need";
+							break;
+
+						case 'Medium':
+							$col = "want";
+							break;
+
+						case 'High':
+							$col = "need";
+							break;
+
+						default:
+							$col = "white";
+							break;
+					}
+
+					// $col = "want";
 					echo '
-					<div class="col-md-3 items-tiles color-need">
+					<div class="col-md-3 items-tiles color-'.$col.' ">
+						priority = '.$value['priority'].'
 						<h4 class="items-heading">'.$value['name'].'</h4>
-						<button onclick="getItemsInfo(event, this)" data-toggle="modal" data-target="#itemsInfo" class="btn btn-primary"  >Get Item Info</button>
+						<button onclick="getItemsInfo(event, this)" value="'.$value['id_item_category'].'" data-toggle="modal" data-target="#itemsInfo" class="btn btn-primary"  >Get Item Info</button>
 					</div>
 					';
 				}
@@ -130,7 +154,18 @@ try{
         <h4 class="modal-title">Modal Header</h4>
       </div>
       <div class="modal-body" id="itemsModalBody">
-        <p>Some text in the modal.</p>
+        	<table class="table">
+						<thead>
+							<tr>
+								<th>Name</th>
+								<th>Priority</th>
+							</tr>
+						</thead>
+						<tbody>
+							<!-- populated by ajax -->
+						</tbody>
+					</table>
+
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
