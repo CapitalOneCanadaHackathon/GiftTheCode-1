@@ -31,7 +31,7 @@
 			<h1>Donations</h1>
 		</div>
 
-		<?php //get_template_part( 'template-parts/header/header', 'image' ); ?>
+		<?php get_template_part( 'template-parts/header/header', 'content' ); ?>
 
 		<?php if ( has_nav_menu( 'top' ) ) : ?>
 			<div class="navigation-top">

@@ -45,6 +45,14 @@ try{
 			<input type="search" placeholder="search something...">
 		</div>
 	</div>
+	<div class="row margintop2vh">
+		<div class="col-md-2">
+			<span class="color-text-pink">URGENT NEED</span>
+		</div>
+		<div class="col-md-2">
+			<span class="color-text-green">NORMAL NEED</span>
+		</div>
+	</div>
 
 	<div class="row items-container">
 
