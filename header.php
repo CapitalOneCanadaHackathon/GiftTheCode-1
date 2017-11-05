@@ -31,9 +31,9 @@
 
 		<?php get_template_part( 'template-parts/header/header', 'content' ); ?>
 
-		<div class="container-fluid gift-header">
+		<!-- <div class="container-fluid gift-header">
 			<h1>Donations</h1>
-		</div>
+		</div> -->
 
 		<?php if ( has_nav_menu( 'top' ) ) : ?>
 			<div class="navigation-top">
