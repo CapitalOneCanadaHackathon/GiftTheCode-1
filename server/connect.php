@@ -4,9 +4,9 @@
   try{
 
     $host = "localhost";
-    $dbname = "Sistering_inventories";
+    $dbname = "sistering_inventories";
     $user = "root";
-    $pass = "root";
+    $pass = "";
 
     $conn = new PDO("mysql:host=$host;dbname=$dbname", $user, $pass);
     // echo "db connected";
