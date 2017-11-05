@@ -57,7 +57,7 @@ function getItemsInfo(e , elem, collpaseIndex){
               // tr.addClass("default");
           }
 
-          var cloneDiv = $("#staticColl").clone();
+         var cloneDiv = $("#staticColl").clone();
           console.log(cloneDiv);
           cloneDiv.find("h4").html(data.data[i].item_name);
           cloneDiv.show();
@@ -65,6 +65,7 @@ function getItemsInfo(e , elem, collpaseIndex){
           cloneDiv.appendTo($("#appendHere"));
           $("#appendHere").html("");
           $("#appendHere").append(cloneDiv);
+
 
         }
 

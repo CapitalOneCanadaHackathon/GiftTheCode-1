@@ -69,7 +69,7 @@ VALUES('2017-05-20 01:05:00', 1, 5, '5 bars of soap donated', 'Medium', 'Item Ad
 
 
 INSERT INTO gtc_items (`id_item_category`,`name`,`updated_by`, `update_date`, `requested`,`priority`, `Memo`)
-VALUES( 2, 'Tiolet tissue', 2, '2017-05-22 02:02:00', 0, 'High', 'only two rolls left in stock');
+VALUES( 2, 'Toilet tissue', 2, '2017-05-22 02:02:00', 0, 'High', 'only two rolls left in stock');
 
 INSERT INTO gtc_items_timestamp (`time`, `id_volunteer`,`id_item`,`memo`,`priority`,`description`)
 VALUES('2017-05-22 02:02:00', 2, 6, 'only two rolls left in stock', 'High', 'Item added');

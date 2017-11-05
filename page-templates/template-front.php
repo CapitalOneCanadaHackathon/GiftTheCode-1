@@ -135,6 +135,9 @@ try{
 			?>
 <!-- categories end -->
 
+
+<!-- listing and displaying sample item data -->
+
 <?php
 
 	$svgname = $value['item_name'];
@@ -207,7 +210,7 @@ if($result = mysqli_query($link, $sql)){
 			/* set $SVGNAME to whatever name is echoed in querie */ ?>
 
 
-        	<div id="<?php echo $itemcategory . '-child' ;?>" data-category="<?php echo $itemcategory;?>" class="col-md-2 items-tiles <?php echo $priorityclass; ?>">
+        	<div data-category="<?php echo $itemcategory;?>" class="col-md-2 items-tiles <?php echo $priorityclass . '  ' . $itemcategory . '-child'; ?>">
 				<h4 class="items-heading"><?php echo $svgname;?></h4>
 				<?php get_template_part($SVGpath)?>
 				<button class="cta-btn" style="display:<?php echo $visibility;?>">BUY NOW</button>
@@ -238,6 +241,8 @@ if($result = mysqli_query($link, $sql)){
 // Close connection
 mysqli_close($link);
 ?>
+
+<!-- sample item data end-->
 
 	<!-- categories -->
 			<!-- <div class="flex items-cat-container">
