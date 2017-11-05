@@ -22,6 +22,10 @@ try{
 
 <input type="hidden" value="<?php echo get_template_directory_uri() ?>" id="serverURI">
 
+<div style="display: none" id="staticColl" class="col-md-2 items-tiles alert alert-danger col-header">
+	<h4 class="items-heading">STATIC PAPER</h4>
+	<button class="color-text-pink color-white">BUY NOW</button>
+</div>
 
 <div class="container">
 	<div class="row">
@@ -43,7 +47,7 @@ try{
 	</div>
 
 <!-- categories posted PHP -->
-<div class="flex items-cat-container">
+
 			<?php
 
 				//sql statement
@@ -66,9 +70,35 @@ try{
 				}
 
 				$col = "need"; //want:  green, need: red
+				$count = 0;
+				$i = 0;
+				$collapse = 0;
 
+				echo '<div class="flex items-cat-container">';
 
 				foreach ($get_items as $value) {
+
+					if($count == 3 ){
+						echo "
+						</div>
+						";
+						echo '	<div class="row">
+								<div class="collapse col-md-12" id="collapseExample'.$collapse.'" >
+									<div class="panel-body">
+										<div class="row items-container" id="appendHere">
+
+
+											</div>
+									</div>
+								</div>
+							</div>';
+
+						echo"
+						<div class='flex items-cat-container'>
+						";
+						$count = 0;
+						$collapse++;
+					}
 
 					switch ($value['priority']) {
 						case 'Low':
@@ -91,13 +121,19 @@ try{
 					// $col = "want";
 					echo '
 					<div class="items-cat-tiles color-'.$col.'-cat">
-							<a class="flex-center" data-toggle="collapse" href="#collapseExample2" aria-expanded="false" aria-controls="collapseExample2"><h4 class="items-heading">'.$value['cat_name'].'</h4></a>
+							<button value="'.$value['id_item_category'].'" class="flex-center" data-toggle="collapse" onclick="getItemsInfo(event, this, '.$collapse.' )" href="#collapseExample'.$collapse.'" aria-expanded="false" aria-controls="collapseExample'.$collapse.'"><h4 class="items-heading">'.$value['cat_name'].'</h4></button>
 					</div>
 					';
+
+					$count ++;
+					$i++;
+					if ($i == count($get_items) ){
+						echo '</div>';
+					}
+
 				}
 
 			?>
-</div>
 <!-- categories end -->
 
 
@@ -122,7 +158,7 @@ try{
 
 
 			<!-- items collapse -->
-			<div class="row">
+			<!-- <div class="row">
 				<div class="collapse col-md-12" id="collapseExample2" >
 					<div class="panel-body">
 						<div class="row items-container">
@@ -157,7 +193,7 @@ try{
 						</div>
 					</div>
 				</div>
-			</div>
+			</div> -->
 
 			<div class="row">
 				<div class="col-md-3 items-cat-tiles color-need">

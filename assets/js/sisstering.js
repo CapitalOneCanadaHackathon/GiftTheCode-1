@@ -1,15 +1,18 @@
-function getItemsInfo(e , elem){
+function getItemsInfo(e , elem, collpaseIndex){
 
-
-
+  var col_index = collpaseIndex;
   //prevent defualt action
   e.preventDefault();
 
+  var collapseId = $("#collapseExample"+col_index);
+  var containerCol = collapseId.find("div > div");
+
+  console.log(containerCol);
+
   var elem = $(elem);
   var serverURI = $("#serverURI").val();
-  var modalBody = $("#itemsModalBody");
 
-  console.log(elem);
+  console.log("category = "+elem.val());
   var data = "category="+elem.val();
 
   $.ajax({
@@ -25,58 +28,48 @@ function getItemsInfo(e , elem){
         //parse response data as JSON
         var data = JSON.parse(data);
 
-        //get access to tbody
-        var tbody = modalBody.find("table > tbody");
-
-        //empty the tbody if data found
-        if(tbody.children().length > 0){
-          tbody.html("");
-        }
-
         //if the data response length is zero return empty
         if(data.data.length == 0){
+          console.log(data);
           return;
         }
+
+        console.log($("#staticColl"));
 
         //if results are found create a <tr> and <td> tag and populate the data and append
         for(var i = 0; i < data.data.length; i ++){
 
-          //create elements
-          var tr = $(document.createElement('tr') );
-          var td = $(document.createElement('td') ); //contains 'name'
-          var td_two = $(document.createElement('td') ); //contains 'priority'
 
-          
+
           switch (data.data[i].priority) {
             case 'Low':
-              tr.addClass("success");
+              // tr.addClass("success");
               break;
 
             case 'Medium':
-              tr.addClass("info");
+              // tr.addClass("info");
               break;
 
             case 'High':
-              tr.addClass("danger");
+              // tr.addClass("danger");
               break;
             default:
-              tr.addClass("default");
+              // tr.addClass("default");
           }
 
+          var cloneDiv = $("#staticColl").clone();
+          console.log(cloneDiv);
+          cloneDiv.find("h4").html(data.data[i].item_name);
+          cloneDiv.show();
+          // cloneDiv.appendTo(containerCol[0]);
+          cloneDiv.appendTo($("#appendHere"));
+          $("#appendHere").html("");
+          $("#appendHere").append(cloneDiv);
 
-          //attach the elements in <td>
-          td.html(data.data[i].name);
-          td_two.html(data.data[i].priority);
-
-          //append the <td> in <tr>
-          tr.append(td);
-          tr.append(td_two);
-
-          //append the <tr> to <tbody>
-          tbody.append(tr);
         }
-      }
 
+      }
+console.log(data);
     },
     error: function(data){
       console.log(data);

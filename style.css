@@ -208,7 +208,13 @@ input[type=search]{
 }
 
 .color-white{
-	background-color: #FFF;
+	background-color: #337ab7;
+}
+.color-white-cat{
+	background-color: #337ab7;
+}
+.color-white-cat a{
+	background-color: #337ab7;
 }
 
 .color-grey{
