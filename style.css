@@ -219,6 +219,10 @@ input[type=search]{
 	outline: none;
 }
 
+#inventory-filter button{
+	background-color: #D9D9D9; 
+}
+
 .color-need{
 	color: #FA2A32;
 }
@@ -233,8 +237,8 @@ input[type=search]{
 
 .color-need-cat{
 	background-color: #FFF;
-	color: #FA2A32;
-	border: 1px solid #FA2A32;
+	color: #a39f9f;
+	border: 1px solid #a39f9f;
 }
 
 
@@ -244,8 +248,8 @@ input[type=search]{
 
 .color-want-cat{
 	background-color: #FFF;
-	color: #5cb85c;
-	border: 1px solid #5cb85c;
+	color: #a39f9f;
+	border: 1px solid #a39f9f;
 }
 
 .color-want path{
@@ -289,8 +293,8 @@ input[type=search]{
 
 .color-white-cat{
 	background-color: #FFF;
-	color: #337ab7;
-	border: 1px solid #337ab7;
+	color: #a39f9f;
+	border: 1px solid #a39f9f;
 }
 
 

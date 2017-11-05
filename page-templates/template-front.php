@@ -9,7 +9,7 @@ try{
 	$host = "localhost";
 	$dbname = "sistering_inventories";
 	$user = "root";
-	$pass = "";
+	$pass = "root";
 
 	$conn = new PDO("mysql:host=$host;dbname=$dbname", $user, $pass);
 	echo "db connected";
@@ -184,7 +184,7 @@ try{
 <?php
 /* Attempt MySQL server connection. Assuming you are running MySQL
 server with default setting (user 'root' with no password) */
-$link = mysqli_connect("localhost", "root", "", "Sistering_inventories");
+$link = mysqli_connect("localhost", "root", "root", "Sistering_inventories");
 
 // Check connection
 if($link === false){
