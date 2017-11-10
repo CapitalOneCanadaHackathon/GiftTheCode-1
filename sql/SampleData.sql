@@ -11,6 +11,7 @@ INSERT INTO gtc_volunteers (`name`, `phone`, `email`, `password`)
 VALUES('Saeed Alam', '416-233-5432', 'saeed@hotmail.com', 'password123');
 
 
+
 INSERT INTO gtc_item_categories (`name`,`img`)
 VALUES('Clothing', 'clothing.svg');
 

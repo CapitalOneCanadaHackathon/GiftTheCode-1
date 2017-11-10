@@ -29,7 +29,7 @@ CREATE TABLE IF NOT EXISTS `gtc_items` (
   `updated_by` int(11) NOT NULL,
   `update_date` timestamp NOT NULL,
   `requested` bit(1) NOT NULL DEFAULT b'0',
-  `priority` varchar(6) NOT NULL DEFAULT 'Low',
+  `priority` int(1) NOT NULL DEFAULT 'Low',
   `memo` varchar(200) DEFAULT NULL,
   `img` varchar(20000) DEFAULT NULL,
   PRIMARY KEY (`id_item`),
