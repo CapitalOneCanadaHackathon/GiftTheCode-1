@@ -10,9 +10,11 @@
     // SELECT gc.id_item_category AS cat_id, gc.name AS item_cat, g.id_item, g.name, g.priority  FROM  gtc_items g, gtc_item_categories gc
     //       WHERE g.id_item = gc.id_item_category
     //       AND gc.id_item_category = '1'
-    $sql_item = "SELECT g.id_item, g.name AS item_name, g.priority, gc.id_item_category, gc.name AS cat_name FROM  gtc_items g, gtc_item_categories gc
-      WHERE g.id_item = gc.id_item_category
-      AND g.id_item_category = '$cat' ";
+    $sql_item = "SELECT g.id_item, g.name AS item_name, g.priority, gc.id_item_category, gc.name AS cat_name, g.img AS item_img, gc.img AS cat_img 
+      FROM  gtc_items g, gtc_item_categories gc
+       WHERE g.id_item_category = gc.id_item_category
+         AND g.id_item_category = '$cat' ";
+
     // $sql_items = "SELECT * FROM gtc_items WHERE id_item_category = '1' ";
 
     try{

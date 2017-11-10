@@ -35,36 +35,47 @@ function getItemsInfo(e , elem, collpaseIndex){
         }
 
         console.log($("#staticColl"));
-
+        $("#collapseExample"+col_index).html("");
         //if results are found create a <tr> and <td> tag and populate the data and append
         for(var i = 0; i < data.data.length; i ++){
 
+         var cloneDiv = $("#staticColl").clone();
+         var svg = document.createElement("svg");
+         var btn = cloneDiv.find("button");
 
 
-          switch (data.data[i].priority) {
+         switch (data.data[i].priority) {
             case 'Low':
-              // tr.addClass("success");
+                cloneDiv.addClass("color-white");
+                btn.hide();
               break;
 
             case 'Medium':
-              // tr.addClass("info");
+                cloneDiv.addClass("color-want");
+                btn.hide();
               break;
 
             case 'High':
-              // tr.addClass("danger");
+                cloneDiv.addClass("color-need");
+                // btn.addClass();
               break;
             default:
-              // tr.addClass("default");
+                cloneDiv.addClass("default");
           }
 
-         var cloneDiv = $("#staticColl").clone();
-          console.log(cloneDiv);
+          // console.log(cloneDiv);
+
           cloneDiv.find("h4").html(data.data[i].item_name);
+          var svg_div = cloneDiv.children(".svg_loc");
+
+          //populate div with svg content
+          svg_div.html(String(data.data[i].item_img));
+
           cloneDiv.show();
           // cloneDiv.appendTo(containerCol[0]);
-          cloneDiv.appendTo($("#appendHere"));
-          $("#appendHere").html("");
-          $("#appendHere").append(cloneDiv);
+          // cloneDiv.appendTo($("#appendHere"));
+          
+          $("#collapseExample"+col_index).append(cloneDiv);
 
 
         }

@@ -16,7 +16,7 @@ get_header();
 	</div>
 
 	<div class="row marginbottom-med">
-		<div class="col-md-12 items-cat-container">
+		<div class="col-md-12 items-cat-container" id="inventory-filter">
 			<button>all</button>
 			<button>clothing</button>
 			<button>toiletries</button>
@@ -35,7 +35,7 @@ get_header();
 		$host = "localhost";
 		$dbname = "sistering_inventories";
 		$user = "root";
-		$pass = "";
+		$pass = "root";
 
 		$conn = new PDO("mysql:host=$host;dbname=$dbname", $user, $pass);
 		//echo "db connected";
@@ -84,8 +84,8 @@ $id++; ?>
 		</div>
 		<div class="col-md-6">
 			<div class="flex">
-				<button class="color-need">NEED</button>
-				<button class="color-want">WANT</button>
+				<button class="color-need">URGENT NEED</button>
+				<button class="color-want">NEED</button>
 				<button>NO NEED</button>
 			</div>
 		</div>

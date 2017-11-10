@@ -6,7 +6,7 @@
     $host = "localhost";
     $dbname = "sistering_inventories";
     $user = "root";
-    $pass = "";
+    $pass = "root";
 
     $conn = new PDO("mysql:host=$host;dbname=$dbname", $user, $pass);
     // echo "db connected";
